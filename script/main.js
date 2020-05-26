@@ -32,3 +32,25 @@ leftMenu.addEventListener('click', event => {
     hamburger.classList.add('open');
   }
 });
+
+
+
+
+// при наведении на картинку
+
+const tvCardImg = document.querySelector('.tv-shows');
+
+const cardImg = function (event) {
+
+  const target = event.target;
+  const tvCard = target.closest('.tv-card__img');
+
+  if (tvCard) {
+    const backdropURL = tvCard.dataset.backdrop;
+    tvCard.dataset.backdrop = tvCard.src;
+    tvCard.src = backdropURL;
+  }
+};
+
+tvCardImg.addEventListener('mouseover', cardImg);
+tvCardImg.addEventListener('mouseout', cardImg);
